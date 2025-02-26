@@ -160,10 +160,13 @@ md"""
 
 # ╔═╡ f9db7e6d-5ba0-4c18-94ba-dc94afd641a0
 let
-	fig = Figure(size=(800, 400))
+	fig = Figure(size=(800, 400), fontsize=20)
 	ax = Axis(fig[1, 1];
 		xreversed = true,
 		aspect = DataAspect(),
+		xlabel = "X (Earth-Moon Distance)",
+		ylabel = "Y (Earth-Moon Distance)",
+		# labelsize = 12,
 		title = "Unstable and Stable Invariant Manifolds",
 		titlesize = 24,
 	)
@@ -178,7 +181,7 @@ let
 		plot!(ax, m; idxs=(:x, :y), color=cmap[i])
 	end
 
-	# scatter!(ax, [1-μ], [0], label="Moon", xlabel="X (Earth-Moon Distance)", ylabel="Y (Earth-Moon Distance)", marker=:x, color=:black, markersize=10,)
+	scatter!(ax, [1-μ], [0]; marker=:x, color=:black, markersize=50, label="Moon")
 	
 	fig
 end
